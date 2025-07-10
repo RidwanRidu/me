@@ -3,199 +3,665 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ridwan Hossain - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ridwan Hossain – Web Developer & Banking Professional</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-
-
-.sidebar img {
-    border: 2px solid #007acc; /* Border for profile picture */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow for profile picture */
-}
-        body {
-             font-size: 1.1rem; /* Increase font size */
-                line-height: 1.6;
-            font-family: 'Inter', sans-serif;
-            background-color: #e0e0e0;
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
-        .container {
-            max-width: 1024px;
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .sidebar {
-            background-color: #e5e7eb;
-            padding: 2rem;
-            border-radius: 0.5rem;
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background: #e5e7eb;
         }
-        .main-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
         }
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #d1d5db;
-            padding-bottom: 0.5rem;
-            color: #007acc; /* Accent color for section titles */
-    border-color: #007acc;
-    font-weight: 700; /* Bold section titles */
-    font-size: 1.75rem; /* Larger font size for section titles */
-        }
-        .list-item {
-            margin-bottom: 0.75rem;
-            color: #4b5563;
-        }
-        .list-item strong {
-            font-weight: 500;
-            color: #1f2937;
-        }
-        @media (max-width: 768px) {
-            .sidebar, .main-content {
-                padding: 1.5rem;
-            }
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
         }
     </style>
 </head>
-<body class="bg-gray-200 py-10">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-
-        <aside class="sidebar md:col-span-1">
-            <div class="mb-6">
-                <img src="https://github.com/RidwanRidu/me/blob/30cc7fe2882e1d938323ff948883af7966944933/ridwan.JPG" alt="Ridwan Hossain Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-md">
-                <h1 class="text-2xl font-bold text-center text-gray-800">Ridwan Hossain</h1>
-                <p class="text-gray-600 text-center text-sm">Gharisar, Naria, Shariatpur</p>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-gray-900">Ridwan<span class="text-blue-600"> Hossain</span></a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#experience" class="text-gray-700 hover:text-blue-600 transition">Experience</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition">Services</a>
+                    <a href="#contact" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4 shadow-lg">
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">About</a>
+            <a href="#experience" class="block py-2 text-gray-700 hover:text-blue-600 transition">Experience</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-blue-600 transition">Skills</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600 transition">Services</a>
+            <a href="#contact" class="block mt-2 px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition text-center">Contact</a>
+        </div>
+    </nav>
 
-            <section class="mb-6">
-                <h2 class="section-title">Contact</h2>
-                <ul class="list-none">
-                    <li class="list-item"><strong>Cell:</strong> +8801837-459600<br>+8801948-199550</li>
-                    <li class="list-item"><strong>Email:</strong> <a href="mailto:ridwanhossain307@gmail.com" class="hover:underline text-blue-600">ridwanhossain307@gmail.com</a></li>
-                </ul>
-            </section>
-
-            <section class="mb-6">
-                <h2 class="section-title">Skills</h2>
-                <ul class="list-disc pl-5">
-                    <li class="list-item"><strong>Operating Systems:</strong> Windows, Ubuntu</li>
-                    <li class="list-item"><strong>Software:</strong> MS Office Suite, Adobe Suite</li>
-                    <li class="list-item"><strong>Networking:</strong> Internet Browsing, Email</li>
-                    <li class="list-item"><strong>Programming:</strong> C, C++, HTML, CSS</li>
-                </ul>
-            </section>
-
-            <section class="mb-6">
-                <h2 class="section-title">Languages</h2>
-                <ul class="list-disc pl-5">
-                    <li class="list-item">Bengali (Native)</li>
-                    <li class="list-item">English (Proficient)</li>
-                </ul>
-            </section>
-        </aside>
-
-        <main class="main-content md:col-span-2">
-            <section class="mb-8">
-                <h2 class="section-title">Career Objectives</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Highly motivated and quick-learning individual with a strong foundation in Computer Science and Engineering. Seeking a challenging entry-level position in the IT sector in Bangladesh to apply my technical skills, contribute to innovative projects, and gain practical experience in a dynamic environment. Eager to learn new technologies and contribute to the growth of a forward-thinking organization.
-                </p>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="section-title">Experiences</h2>
-                <ul class="list-disc pl-5">
-                    <li class="list-item">
-                        <strong>Assistant Teacher (Science Department)</strong>, Local High School
-                    </li>
-                    <li class="list-item">
-                        <strong>Agent Staff</strong>, Kodomtola Bazar Agent Outlet, Southeast Bank PLC
-                    </li>
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="section-title">Educational Background</h2>
-                <div class="space-y-4">
-                    <div>
-                        <h3 class="font-semibold text-gray-700">Master of Science (M.Sc.)</h3>
-                        <p class="text-gray-600 text-sm">Department: Computer Science and Engineering, Jagannath University (JnU), Running.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-700">Bachelor of Science (B.Sc.)</h3>
-                        <p class="text-gray-600 text-sm">Department: Computer Science and Engineering, Z. H. Sikder University of Science and Technology (ZHSUST), CGPA: 3.20 (Out of 4).</p>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-700">HSC & SSC</h3>
-                        <p class="text-gray-600 text-sm">Panditsar T. M. Gias Uddin College & Panditsar High School</p>
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Ridwan Hossain</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Web Developer & Banking Professional</h2>
+                    <p class="text-lg mb-8 opacity-90">Bridging technology and finance with technical expertise in web development and practical banking experience.</p>
+                    <a href="#services" class="inline-block px-8 py-3 bg-white text-blue-600 rounded-md font-medium hover:bg-gray-100 transition">View My Services</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="http://ridwanridu.free.nf/wp-content/uploads/2025/05/ridwan.jpg" alt="Ridwan Hossain" class="w-full h-full object-cover">
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section class="mb-8">
-                <h2 class="section-title">Extra-Curricular Activities</h2>
-                <ul class="list-disc pl-5">
-                    <li class="list-item">Promotional Manager at ICT Olympiad Bangladesh (Shariatpur)</li>
-                    <li class="list-item">Research and Innovation Secretary at Shariatpur Math Circle</li>
-                    <li class="list-item">Got 2nd place in Shariatpur Mathematical Olympiad-2022</li>
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="section-title">Adaptation & Communication Skills</h2>
-                <ul class="list-disc pl-5">
-                    <li class="list-item">Good command over spoken and written English and Bengali.</li>
-                    <li class="list-item">Strong communication and interpersonal skills.</li>
-                    <li class="list-item">Ability to express ideas clearly and concisely.</li>
-                    <li class="list-item">Ability to work in a multicultural environment and under pressure.</li>
-                    <li class="list-item">Self-motivated and committed.</li>
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="section-title">Personal Details</h2>
-                <ul class="list-none">
-                    <li class="list-item"><strong>Father's Name:</strong> Jahid Hossain</li>
-                    <li class="list-item"><strong>Mother's Name:</strong> Nurjahan Begum</li>
-                    <li class="list-item"><strong>Date of Birth:</strong> 24 May 1999</li>
-                    <li class="list-item"><strong>Blood Group:</strong> A+</li>
-                    <li class="list-item"><strong>Height:</strong> 5'10"</li>
-                    <li class="list-item"><strong>Marital Status:</strong> Married</li>
-                    <li class="list-item"><strong>Religion:</strong> Islam</li>
-                    <li class="list-item"><strong>Nationality:</strong> Bangladeshi</li>
-                    <li class="list-item"><strong>Address:</strong> Vill: Bahir Kushiya, P.O: Gharisar, P.S: Naria, District: Shariatpur</li>
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="section-title">References</h2>
-                <div class="space-y-4">
-                    <div>
-                        <h3 class="font-semibold text-gray-700">Md Mahafujur Rahman</h3>
-                        <p class="text-gray-600 text-sm">Associate Professor & Chairman</p>
-                        <p class="text-gray-600 text-sm">Department of Computer Science and Engineering</p>
-                        <p class="text-gray-600 text-sm">Z. H. Sikder University of Science and Technology</p>
-                        <p class="text-gray-600 text-sm">Contact No: +8801714758278</p>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-700">Muhammad Afsar Uddin</h3>
-                        <p class="text-gray-600 text-sm">Assistant Professor & Chairman</p>
-                        <p class="text-gray-600 text-sm">Department of Computer Science and Engineering</p>
-                        <p class="text-gray-600 text-sm">Feni University</p>
-                        <p class="text-gray-600 text-sm">Contact No: +8801746421169</p>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <p class="text-lg mb-6 text-gray-700 leading-relaxed">
+                        I'm a detail-oriented professional who bridges the gap between technology and finance. 
+                        My unique combination of technical expertise in web development with practical banking 
+                        experience allows me to approach problems from multiple perspectives.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-700 leading-relaxed">
+                        With a passion for education and knowledge sharing, I enjoy mentoring others and 
+                        creating solutions that make complex concepts accessible.
+                    </p>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Education</h3>
+                        <div class="space-y-6 relative">
+                            <!-- Timeline item -->
+                            <div class="timeline-item pl-8 relative">
+                                <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-600"></div>
+                                <h4 class="font-bold text-gray-900">M.Sc. in Computer Science & Engineering</h4>
+                                <p class="text-gray-600">Jahangirnagar University (JnU)</p>
+                                <p class="text-sm text-gray-500">2023–Present</p>
+                            </div>
+                            <!-- Timeline item -->
+                            <div class="timeline-item pl-8 relative">
+                                <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-600"></div>
+                                <h4 class="font-bold text-gray-900">B.Sc. in Computer Science & Engineering</h4>
+                                <p class="text-gray-600">Z.H. Sikder University of Science & Technology (ZHSUST)</p>
+                                <p class="text-sm text-gray-500">2018–2022</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
-    </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-6 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-4">My Approach</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-lightbulb text-blue-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-900">Innovative Solutions</h4>
+                                    <p class="text-gray-600 mt-1">Combining technical and financial expertise to create unique solutions.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-chart-line text-blue-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-900">Strategic Thinking</h4>
+                                    <p class="text-gray-600 mt-1">Approaching problems with both technical precision and business acumen.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-users text-blue-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-900">Client Focus</h4>
+                                    <p class="text-gray-600 mt-1">Understanding client needs from both technical and financial perspectives.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                        <i class="fas fa-book text-blue-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-900">Continuous Learning</h4>
+                                    <p class="text-gray-600 mt-1">Committed to staying current in both technology and finance sectors.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="bg-gray-300 text-gray-700 py-4 text-center mt-8">
-        <p>&copy; 2025 <a href="https://github.com/RidwanRidu">Ridwan Hossain</a>. All rights reserved.</p>
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Professional Experience</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Experience Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Southeast Bank PLC.</h3>
+                            <p class="text-gray-600">2024–Present</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Financial transaction processing and verification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Client relationship management and support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Banking software utilization and troubleshooting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Regulatory compliance and documentation</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Experience Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-chalkboard-teacher text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Imperial School</h3>
+                            <p class="text-gray-600">2023–2024</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Computer Science curriculum design and implementation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>STEM student engagement and project mentoring</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Educational technology implementation and training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Student assessment and progress tracking</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Skills Matrix</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Web Development Skills -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Web Development</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">HTML5 & CSS3</span>
+                                <span class="text-sm text-gray-500">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">JavaScript (ES6+)</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Responsive Design</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Frontend Frameworks</span>
+                                <span class="text-sm text-gray-500">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teaching Skills -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-chalkboard text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Teaching</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Curriculum Design</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Student Mentorship</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Educational Technology</span>
+                                <span class="text-sm text-gray-500">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">STEM Instruction</span>
+                                <span class="text-sm text-gray-500">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Banking Skills -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-piggy-bank text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Banking</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Financial Operations</span>
+                                <span class="text-sm text-gray-500">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">CRM Systems</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Regulatory Compliance</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Client Services</span>
+                                <span class="text-sm text-gray-500">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Services Offered</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition card-hover">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web Development</h3>
+                    <p class="text-gray-600 mb-4">
+                        Custom website development, responsive design, and UI/UX optimization for businesses and individuals.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Custom website development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Responsive mobile-friendly design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>UI/UX optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Performance optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition card-hover">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-book-open text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Academic Tutoring</h3>
+                    <p class="text-gray-600 mb-4">
+                        Personalized instruction in computer science fundamentals and secondary science subjects.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Computer science fundamentals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Programming concepts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Secondary science subjects</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Exam preparation</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition card-hover">
+                    <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-hand-holding-usd text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Financial Guidance</h3>
+                    <p class="text-gray-600 mb-4">
+                        Expert advice on banking transaction systems and financial literacy education.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Banking transaction systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Financial literacy education</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Personal finance basics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Banking software guidance</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 md:p-12 shadow-xl">
+                <div class="md:flex items-center justify-between">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+                        <p class="text-blue-100 text-lg mb-6">
+                            Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 bg-opacity-20 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-blue-100">Email me at</p>
+                                <a href="mailto:cseridwan@proton.me" class="text-white font-medium hover:underline">cseridwan@proton.me</a>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <p class="text-blue-100 text-sm">
+                                <i class="fas fa-clock mr-2"></i> I typically respond within 24 hours
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <form id=form id="contactForm" class="bg-white p-6 rounded-lg shadow-sm" method="POST" action="https://formspree.io/f/xanjkbpb">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition font-medium">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold">Ridwan<span class="text-blue-400"> Hossain</span></a>
+                    <p class="text-gray-400 mt-2">Web Developer & Banking Professional</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/rid1h/" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="https://github.com/RidwanRidu" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://x.com/rid1_ridu" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/rhmridwan/" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Ridwan Hossain. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+       <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // *** UPDATED FORM SUBMISSION HANDLING ***
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+
+            // Clear previous status messages
+            const existingStatus = form.querySelector('.status-message');
+            if (existingStatus) {
+                existingStatus.remove();
+            }
+            
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'status-message mt-4 p-4 bg-green-100 text-green-700 rounded-md';
+                    successMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully!';
+                    form.appendChild(successMessage);
+                    form.reset();
+                } else {
+                    // Handle server errors
+                    response.json().then(data => {
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'status-message mt-4 p-4 bg-red-100 text-red-700 rounded-md';
+                        if (Object.hasOwn(data, 'errors')) {
+                             errorMessage.innerHTML = `<i class="fas fa-exclamation-triangle mr-2"></i> ${data["errors"].map(error => error["message"]).join(", ")}`;
+                        } else {
+                            errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i> Oops! There was a problem submitting your form.';
+                        }
+                        form.appendChild(errorMessage);
+                    })
+                }
+            }).catch(error => {
+                // Handle network errors
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'status-message mt-4 p-4 bg-red-100 text-red-700 rounded-md';
+                errorMessage.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i> Network error. Please try again later.';
+                form.appendChild(errorMessage);
+            }).finally(() => {
+                // Reset button regardless of outcome
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            });
+        });
+    </script>
 </body>
 </html>
